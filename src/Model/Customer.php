@@ -61,7 +61,7 @@ class Customer
     private $financeExtraInformation = null;
 
     /** @var string */
-    private $vatNumber = null;;
+    private $vatNumber = null;
 
     /** @var int */
     private $paymentTerm = null;
@@ -812,6 +812,4 @@ class Customer
     {
         $this->customerId = $customerId;
     }
-    
-
 }
