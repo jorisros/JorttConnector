@@ -2,32 +2,42 @@
 
 namespace JorttConnector;
 
-
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
+use JorttConnector\Model\Customer;
 
 class JorttConnector
 {
-    /** @var Client */
-    private $client;
-
-    public function __construct(Client $client)
+    /**
+     *
+     * @param Response $response
+     * @return array
+     * @throws \Exception
+     */
+    public function getAllCustomers(Response $response): array
     {
-        $this->client = $client;
-    }
+        if ($response->getStatusCode() === 200) {
+            $json = $response->getBody();
+            var_dump($json);
 
-    public function getAllCustomers(int $page = 1, int $perPage = 25): array
-    {}
+            return [];
+        } else {
+            throw new \Exception("Cannot retrieve the customers");
+        }
+    }
 
 
     public function getCustomer(): Customer
-    {}
+    {
+        return new Customer();
+    }
 
     public function createCustomer(Customer $customer): string
-    {}
+    {
+        return '';
+    }
 
     public function updateCustomer(Customer $customer): string
-    {}
-
-
+    {
+        return '';
+    }
 }
